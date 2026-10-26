@@ -25,6 +25,7 @@ public class StudentRepositoryTest {
                         "AnnaM@gmail.com", "Student"));
     }
 
+    
     @Test 
     public void createNewStudent(){
         Student student = new Student("Maija Mikkeli", "Mikonkatu 1", 
@@ -32,4 +33,5 @@ public class StudentRepositoryTest {
         sRepository.save(student);
         assertThat(student.getId()).isNotNull();
     }
+    
 }
