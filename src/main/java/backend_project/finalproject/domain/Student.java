@@ -12,12 +12,14 @@ public class Student {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long _id;
     private String _name;
+    private int _age;
     private String _address;
     private String _email;
     private String _status;
 
-    public Student(String name, String address, String email, String status) {
+    public Student(String name, int age , String address, String email, String status) {
         _name = name;
+        _age = age;
         _address = address;
         _email = email;
         _status = status;
@@ -33,6 +35,10 @@ public class Student {
 
     public void setName(String name) {
         _name = name;
+    }
+
+    public void setAge(int age){
+        _age = age;
     }
 
     public void setAddress(String address) {
@@ -55,6 +61,10 @@ public class Student {
         return _name;
     }
 
+    public int getAge(){
+        return _age;
+    }
+
     public String getAddress() {
         return _address;
     }
@@ -65,6 +75,12 @@ public class Student {
 
     public String getStatus() {
         return _status;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [_id=" + _id + ", _name=" + _name + ", _age=" + _age + ", _address=" + _address + ", _email="
+                + _email + ", _status=" + _status + "]";
     }
     
 }

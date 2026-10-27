@@ -21,14 +21,14 @@ public class StudentRepositoryTest {
     @BeforeEach 
     public void setUp(){
         testStudent = sRepository.save(
-            new Student("Anna Marttila", "Mikkelä 12b", 
+            new Student("Anna Marttila", 20 , "Mikkelä 12b", 
                         "AnnaM@gmail.com", "Student"));
     }
 
     
     @Test 
     public void createNewStudent(){
-        Student student = new Student("Maija Mikkeli", "Mikonkatu 1", 
+        Student student = new Student("Maija Mikkeli", 12 , "Mikonkatu 1", 
                                     "MaijaMM@gmail.com", "guardian");
         sRepository.save(student);
         assertThat(student.getId()).isNotNull();

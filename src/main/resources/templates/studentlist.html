@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studentlist</title>
+    <title>Student list</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-    <h1>This is studentlist</h1>
+    <h1>Student list</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}">Name</td>
+            <td th:text="${student.age}">Age</td>
+            <td th:text="${student.address}">Address</td>
+            <td th:text="${student.email}">Email</td>
+            <td th:text="${student.status}">Status</td>
+
+            <td>Delete</td>
+
+            <td>Edit</td>
+
+        </tr>
+    </table>
+    <p>Add Student</p>
 </body>
 </html>
