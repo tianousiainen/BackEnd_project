@@ -4,7 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import backend_project.finalproject.domain.Student;
 import backend_project.finalproject.domain.StudentRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller 
 public class StudentController {
@@ -20,4 +23,11 @@ public class StudentController {
         model.addAttribute("students", studentRepository.findAll());
         return("/studentlist"); //studentlist.html
     }
+
+    @GetMapping(value="/addstudent")
+    public String getNewStudent(Model model) {
+        model.addAttribute("student", new Student());
+        return ("addstudent"); //addstudent.html
+    }
+    
 }

@@ -21,5 +21,10 @@ public class StudentControllerTest {
         .andExpect(status().isOk());
     }
 
+    @Test 
+    public void addStudentOpens() throws Exception{
+        mockMvc.perform(get("/addstudent"))
+        .andExpect(status().isOk());
+    }
 
 }

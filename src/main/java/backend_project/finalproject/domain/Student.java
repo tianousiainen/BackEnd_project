@@ -17,7 +17,7 @@ public class Student {
     private String _email;
     private String _status;
 
-    public Student(String name, int age , String address, String email, String status) {
+    public Student(String name, int age ,String address, String email, String status) {
         _name = name;
         _age = age;
         _address = address;
@@ -79,8 +79,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [_id=" + _id + ", _name=" + _name + ", _age=" + _age + ", _address=" + _address + ", _email="
-                + _email + ", _status=" + _status + "]";
+        return "Student [_id=" + _id + ", _name=" +
+                 _name + ", _address=" + _address + ", _email=" + _email
+                + ", _status=" + _status + "]";
     }
+    
     
 }
