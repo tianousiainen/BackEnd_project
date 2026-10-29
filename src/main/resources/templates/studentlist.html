@@ -24,6 +24,7 @@
             <th>Address</th>
             <th>Email</th>
             <th>Status</th>
+            <th>Group</th>
             <th> </th>
             <th> </th>
         </tr>
@@ -35,6 +36,13 @@
             <td th:text="${student.email}">Email</td>
             <td th:text="${student.status}">Status</td>
 
+            <td>
+                <span th:each="group : ${student.groups}"
+                    th:text="${group.name}">
+
+                </span>
+            </td>
+
             <td>Delete</td>
 
             <td>Edit</td>
@@ -42,5 +50,6 @@
         </tr>
     </table>
     <p><a class="btn btn-success" th:href="@{/addstudent}">Add student</a></p>
+    <p><a class="btn btz-xs btn-secondary" th:href="@{/grouplist}">See groups</a></p>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group list</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <h1>Group list</h1>
+
+      <table class="table table-striped">
+            <tr>
+                <th>Group</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+
+            <tr th:each="group : ${groups}">
+                <td th:text="${group.name}"></td>
+
+                <td>Delete</td>
+                <td>Edit</td>
+            </tr>
+      </table>
+
+       <p><a class="btn btz-xs btn-secondary" th:href="@{/studentlist}">Back to students</a></p>
+</body>
+</html>

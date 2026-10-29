@@ -1,10 +1,17 @@
 package backend_project.finalproject.domain;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
 public class Student {
@@ -16,6 +23,22 @@ public class Student {
     private String _address;
     private String _email;
     private String _status;
+
+    @ManyToMany 
+    @JoinTable (
+        name = "student_group_link",
+        joinColumns = @JoinColumn(name = "student_id"),
+        inverseJoinColumns = @JoinColumn (name="group_id")
+    )
+    private Set<Group> _groups = new HashSet<>();
+
+    public Set<Group> getGroups(){
+        return _groups;
+    }
+
+    public void setGroups(Set<Group> groups){
+        _groups = groups;
+    }
 
     public Student(String name, int age ,String address, String email, String status) {
         _name = name;
