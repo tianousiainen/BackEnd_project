@@ -9,6 +9,14 @@
 <body>
     <h1>Student list</h1>
 
+    <div class="d-flex justify-content-between aling-items-center me-4">
+        <h1>Welcome</h1>
+
+        <form th:action="@{logout}" method="post">
+            <input type="submit" value="Sign out" class="btn btn-sm btn-danger">
+        </form>
+    </div>  
+
     <table class="table table-striped">
         <tr>
             <th>Name</th>
@@ -16,6 +24,8 @@
             <th>Address</th>
             <th>Email</th>
             <th>Status</th>
+            <th> </th>
+            <th> </th>
         </tr>
 
         <tr th:each="student : ${students}">
