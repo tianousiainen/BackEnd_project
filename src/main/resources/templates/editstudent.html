@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit student</title>
+</head>
+<body>
+    <h1>Edit student</h1>
+
+    <form method="post" action="#" th:action="@{/savestudent}" th:object="${student}">
+        <input type="hidden" th:field="*{id}">
+        <p>Name <input type="text" th:field="*{name}"></p>
+        <p>Age <input type="text" th:field="*{age}"></p>
+        <p>Address <input type="text" th:field="*{address}"></p>
+        <p>Email <input type="text" th:field="*{email}"></p>
+        <p>Status <input type="text" th:field="*{status}"></p>
+        <p>Group
+            <select name="groupIds">
+                <option th:each="g : ${groups}"
+                    th:value="${g.groupid}"
+                    th:text="${g.name}"
+                ></option>
+            </select>
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

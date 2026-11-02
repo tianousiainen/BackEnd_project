@@ -3,6 +3,8 @@ package backend_project.finalproject;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.never;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,21 @@ public class StudentRepositoryTest {
                                     "MaijaMM@gmail.com", "guardian");
         sRepository.save(student);
         assertThat(student.getId()).isNotNull();
+    }
+
+    @Test 
+    public void findStudentById(){
+        Optional<Student> found = sRepository.findById(testStudent.getId());
+
+        assertThat(found).isPresent();
+        assertThat(found.get().getName()).isEqualTo("Anna Marttila");
+    }
+
+    @Test 
+    public void deleteStudentById(){
+        sRepository.deleteById(testStudent.getId());
+
+        assertThat(sRepository.findById(testStudent.getId())).isEmpty();
     }
     
 }
