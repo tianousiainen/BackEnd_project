@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit group</title>
+</head>
+<body>
+    <h1>Edit group</h1>
+
+    <form method="post" action="#" th:action="@{/savegroup}" th:object="${group}">
+        <input type="hidden" th:field="*{groupid}">
+         <p>Group name
+            <select th:field="*{name}">
+                <option th:each="g : ${groups}"
+                    th:value="${g.name}"
+                    th:text="${g.name}"
+                ></option>
+            </select>
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

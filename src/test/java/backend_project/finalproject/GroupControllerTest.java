@@ -20,4 +20,10 @@ public class GroupControllerTest {
         mockMvc.perform(get("/grouplist"))
         .andExpect(status().isOk());
     }
+
+    @Test
+    public void addGroupOpen() throws Exception {
+        mockMvc.perform(get("/addgroup"))
+        .andExpect(status().isOk());
+    }
 }
