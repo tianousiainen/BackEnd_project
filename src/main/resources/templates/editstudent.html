@@ -16,12 +16,14 @@
         <p>Email <input type="text" th:field="*{email}"></p>
         <p>Status <input type="text" th:field="*{status}"></p>
         <p>Group
-            <select name="groupIds">
-                <option th:each="g : ${groups}"
-                    th:value="${g.groupid}"
-                    th:text="${g.name}"
-                ></option>
-            </select>
+          <div th:each="g : ${groups}">
+            <label>
+                <input type="checkbox"
+                name="groupIds"
+                th:value="${g.groupid}">
+                <span th:text="${g.name}"></span>
+            </label>
+          </div>
         </p>
         <input type="submit" value="Submit">
     </form>

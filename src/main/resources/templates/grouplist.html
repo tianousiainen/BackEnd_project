@@ -21,7 +21,8 @@
 
                 <td><a class="btn btn-danger" 
                     th:href="@{/deletegroup/{id}(id=${group.groupid})}">Delete</a></td>
-                <td><a class="btn btn-secondary" th:href="@{/editgroup/{id}(id=${group.groupid})}">Edit</a></td>
+                <td><a class="btn btn-secondary" 
+                    th:href="@{/editgroup/{id}(id=${group.groupid})}">Edit</a></td>
             </tr>
       </table>
         <p><a class="btn btn-success" th:href="@{/addgroup}">Add group</a></p>

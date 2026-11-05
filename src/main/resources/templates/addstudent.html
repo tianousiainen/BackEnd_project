@@ -16,14 +16,18 @@
         <p>Status: <input type="text" th:field="${student.status}"></p>
 
 
-        <label for="grouplist">Group</label> 
-        <select id="grouplist" name="groupIds" class="form-control">
-            <option th:each="group : ${groups}"
-                th:value="${group.groupid}"
-                th:text="${group.name}"></option>
-        </select>
+       <p>Group</p>
+       <div th:each="g : ${groups}">
+            <label>
+                <input type="checkbox"
+                name="groupIds"
+                th:value="${g.groupid}">
+                <span th:text="${g.name}"></span>
+            </label>
+
+       </div>
         <br>
-        <label for="deplist">Focus</label>
+        <label for="deplist">Discipline</label>
 
         <div>
             <br>

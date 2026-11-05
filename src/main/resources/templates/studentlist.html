@@ -37,10 +37,10 @@
             <td th:text="${student.status}">Status</td>
 
             <td>
-                <span th:each="group : ${student.groups}"
-                    th:text="${group.name}">
-
-                </span>
+               <span th:each="group, iterStat: ${student.groups}">
+                    <span th:text="${group.name}"></span>
+                    <span th:if="${!iterStat.last}">,</span>
+               </span>
             </td>
 
             <td>
