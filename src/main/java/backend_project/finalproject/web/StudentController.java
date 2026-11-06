@@ -9,6 +9,7 @@
     import org.springframework.web.bind.annotation.ModelAttribute;
     import org.springframework.web.bind.annotation.PathVariable;
 
+import backend_project.finalproject.domain.DiciplineRepository;
 import backend_project.finalproject.domain.Group;
 import backend_project.finalproject.domain.GroupRepository;
     import backend_project.finalproject.domain.Student;
@@ -24,12 +25,14 @@ import backend_project.finalproject.domain.GroupRepository;
         
         private final StudentRepository studentRepository;
         private final GroupRepository groupRepository;
+        private final DiciplineRepository diciplineRepository;
 
         public StudentController(StudentRepository studentRepository,
-            GroupRepository groupRepository
+            GroupRepository groupRepository, DiciplineRepository diciplineRepository
         ){
             this.studentRepository = studentRepository;
             this.groupRepository = groupRepository;
+            this.diciplineRepository = diciplineRepository;
         }
         
         @GetMapping("/studentlist")

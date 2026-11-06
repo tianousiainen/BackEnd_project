@@ -25,6 +25,7 @@
             <th>Email</th>
             <th>Status</th>
             <th>Group</th>
+            <th>Dicipline</th>
             <th> </th>
             <th> </th>
         </tr>
@@ -43,6 +44,8 @@
                </span>
             </td>
 
+            <td th:text="${student.dicipline.dicipline}">Dicipline</td>
+
             <td>
                 <a class="btn btn-danger" th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
             </td>
@@ -57,5 +60,6 @@
     </table>
     <p><a class="btn btn-success" th:href="@{/addstudent}">Add student</a></p>
     <p><a class="btn btz-xs btn-secondary" th:href="@{/grouplist}">See groups</a></p>
+    <p><a class="btn btn-secondary" th:href="@{/diciplinelist}">See diciplines</a></p>
 </body>
 </html>

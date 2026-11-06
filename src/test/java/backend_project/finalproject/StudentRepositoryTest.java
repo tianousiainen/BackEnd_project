@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 
+import backend_project.finalproject.domain.Dicipline;
 import backend_project.finalproject.domain.Student;
 import backend_project.finalproject.domain.StudentRepository;
 
@@ -24,14 +25,16 @@ public class StudentRepositoryTest {
     public void setUp(){
         testStudent = sRepository.save(
             new Student("Anna Marttila", 20 , "Mikkelä 12b", 
-                        "AnnaM@gmail.com", "Student"));
+                        "AnnaM@gmail.com", "Student",
+                        new Dicipline("Acrobatics")));
     }
 
     
     @Test 
     public void createNewStudent(){
         Student student = new Student("Maija Mikkeli", 12 , "Mikonkatu 1", 
-                                    "MaijaMM@gmail.com", "guardian");
+                                    "MaijaMM@gmail.com", "guardian",
+                                    new Dicipline("Acrobatics"));
         sRepository.save(student);
         assertThat(student.getId()).isNotNull();
     }

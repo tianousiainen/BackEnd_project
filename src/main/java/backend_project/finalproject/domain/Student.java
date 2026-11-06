@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,6 +33,10 @@ public class Student {
     )
     private Set<Group> _groups = new HashSet<>();
 
+    @ManyToOne 
+    @JoinColumn (name = "diciplineid")
+    private Dicipline _dicipline;
+
     public Set<Group> getGroups(){
         return _groups;
     }
@@ -40,12 +45,14 @@ public class Student {
         _groups = groups;
     }
 
-    public Student(String name, int age ,String address, String email, String status) {
+    public Student(String name, int age ,String address, String email,
+        String status, Dicipline dicipline) {
         _name = name;
         _age = age;
         _address = address;
         _email = email;
         _status = status;
+        _dicipline = dicipline;
     }
 
     public Student(){
@@ -76,6 +83,10 @@ public class Student {
         _status = status;
     }
 
+    public void setDicipline(Dicipline dicipline){
+        _dicipline = dicipline;
+    }
+
     public Long getId() {
         return _id;
     }
@@ -98,6 +109,10 @@ public class Student {
 
     public String getStatus() {
         return _status;
+    }
+
+    public Dicipline getDicipline(){
+        return _dicipline;
     }
 
     @Override
