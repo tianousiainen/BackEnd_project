@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest 
@@ -18,6 +19,7 @@ public class StudentRestControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    @WithMockUser
     public void restStudentReturnsJSON() throws Exception{
         mockMvc.perform(get("/rest/students"))
         .andExpect(status().isOk())

@@ -4,7 +4,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import backend_project.finalproject.domain.AppUser;
+import backend_project.finalproject.domain.AppUserRepository;
 import backend_project.finalproject.domain.Dicipline;
 import backend_project.finalproject.domain.DiciplineRepository;
 import backend_project.finalproject.domain.Group;
@@ -21,7 +24,8 @@ public class FinalprojectApplication {
 
 	@Bean 
 	public CommandLineRunner student(StudentRepository studentRepository,
-		GroupRepository gRepository, DiciplineRepository dRepository){
+		GroupRepository gRepository, DiciplineRepository dRepository,
+		AppUserRepository aRepository){
 		return (args) -> {
 
 			Group group1 = new Group("Adults");
@@ -45,6 +49,18 @@ public class FinalprojectApplication {
 
 			student1.getGroups().add(group2);
 			studentRepository.save(student1);
+
+
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+			AppUser user1 = new AppUser("Teacher", "$2a$10$6YGbfI.vo8iYqlJQXkQRZeW8HmStHIxTiWHv0.wnIUjPtvnlPGhx6",
+							"teacher@teachers.com", "ADMIN");
+				
+			AppUser user2 = new AppUser("Student", "$2a$10$kkNQcZHxe/s2E2ekX0Qc2.qfEHj1GpdOgGet7vulEIBmjY4/xUizi",
+							"student@students.com", "USER");
+
+			aRepository.save(user1);
+			aRepository.save(user2);
 		};
 	}
 }
