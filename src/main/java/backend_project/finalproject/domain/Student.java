@@ -4,6 +4,8 @@ package backend_project.finalproject.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -111,6 +113,7 @@ public class Student {
         return _status;
     }
 
+    @JsonIgnore 
     public Dicipline getDicipline(){
         return _dicipline;
     }

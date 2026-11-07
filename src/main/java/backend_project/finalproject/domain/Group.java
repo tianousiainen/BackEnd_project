@@ -11,7 +11,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//import jakarta.persistence.CascadeType;
 
 @Entity 
 @Table (name = "hobby_group")
@@ -24,6 +26,7 @@ public class Group {
    @ManyToMany (mappedBy = "_groups")
    private Set<Student> _students = new HashSet<>();
 
+   @JsonIgnore 
    public Set<Student> getStudents(){
         return _students;
    }
