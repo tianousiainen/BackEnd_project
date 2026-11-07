@@ -47,4 +47,14 @@ public class DiciplineController {
 
         return "redirect:/diciplinelist";
     }
+
+    @RequestMapping(value = "/editdicipline/{id}", method= RequestMethod.GET)
+    public String editDicipline(@PathVariable ("id") Long id, Model model){
+        Dicipline dicipline = dRepository.findById(id).orElse(null);
+
+        model.addAttribute("dicipline", dicipline);
+        model.addAttribute("diciplines", dRepository.findAll());
+
+        return("editdicipline"); //editdicipline.html
+    }
 }

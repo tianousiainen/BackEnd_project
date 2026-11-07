@@ -31,8 +31,14 @@ public class FinalprojectApplication {
 			gRepository.save(group2);
 
 			Dicipline dicipline1 = new Dicipline("Acrobatics");
+			Dicipline dicipline2 = new Dicipline("Aerial arts");
+			Dicipline dicipline3 = new Dicipline("Partner acrobatics");
+			Dicipline dicipline4 = new Dicipline("Juggling");
 
 			dRepository.save(dicipline1);
+			dRepository.save(dicipline2);
+			dRepository.save(dicipline3);
+			dRepository.save(dicipline4);
 
 			Student student1 = new Student("Milla Maijanen", 12, 
 					"Mikonkatu", "Anna@gmail.com", "Student", dicipline1);
