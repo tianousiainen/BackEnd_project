@@ -28,6 +28,11 @@
        </div>
         <br>
         <label for="deplist">Discipline</label>
+        <select id="deplist" th:field="*{dicipline}" class="form-control">
+            <option th:each="dicipline: ${diciplines}"
+                th:value="${dicipline.diciplineid}"
+                th:text="${dicipline.dicipline}"></option>
+        </select>
 
         <div>
             <br>

@@ -45,6 +45,7 @@ import backend_project.finalproject.domain.GroupRepository;
         public String getNewStudent(Model model) {
             model.addAttribute("student", new Student());
             model.addAttribute("groups", groupRepository.findAll());
+            model.addAttribute("diciplines", diciplineRepository.findAll());
             return ("addstudent"); //addstudent.html
         }
         
@@ -75,6 +76,7 @@ import backend_project.finalproject.domain.GroupRepository;
             Student student = studentRepository.findById(id).orElse(null);
             model.addAttribute("student", student);
             model.addAttribute("groups", groupRepository.findAll());
+            model.addAttribute("diciplines", diciplineRepository.findAll());
             return ("editstudent"); //editstudent.html
         }
         

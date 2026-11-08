@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.security.test.context.support.WithMockUser;
 
 @SpringBootTest 
 @AutoConfigureMockMvc 
@@ -16,12 +17,14 @@ public class DiciplineControllerTest {
     MockMvc mockMvc;
 
     @Test 
+    @WithMockUser
     public void diciplineListOpens() throws Exception{
         mockMvc.perform(get("/diciplinelist"))
         .andExpect(status().isOk());
     }
 
     @Test
+    @WithMockUser
     public void addDiciplineOpens() throws Exception {
         mockMvc.perform(get("/addDicipline"))
         .andExpect(status().isOk());

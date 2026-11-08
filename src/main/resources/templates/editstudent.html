@@ -20,10 +20,20 @@
             <label>
                 <input type="checkbox"
                 name="groupIds"
-                th:value="${g.groupid}">
+                th:value="${g.groupid}"
+                th:checked="${student.groups.contains(g)}">
                 <span th:text="${g.name}"></span>
             </label>
           </div>
+        </p>
+
+        <p>Dicipline
+            <select th:field="*{dicipline}">
+                <option th:each="d : ${diciplines}"
+                    th:value="${d.diciplineid}"
+                    th:text="${d.dicipline}">
+                </option>
+            </select>
         </p>
         <input type="submit" value="Submit">
     </form>
