@@ -38,7 +38,7 @@ import backend_project.finalproject.domain.GroupRepository;
         @GetMapping("/studentlist")
         public String getStudent(Model model){
             model.addAttribute("students", studentRepository.findAll());
-            return("/studentlist"); //studentlist.html
+            return("studentlist"); //studentlist.html
         }
 
         @GetMapping(value="/addstudent")
