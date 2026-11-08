@@ -30,26 +30,54 @@ public class FinalprojectApplication {
 
 			Group group1 = new Group("Adults");
 			Group group2 = new Group("Circus 1");
+			Group group3 = new Group("Circus 2");
+			Group group4 = new Group("Circus 3");
+			Group group5 = new Group("Modern Circus");
+			Group group6 = new Group("Classic Circus");
 
 			gRepository.save(group1);
 			gRepository.save(group2);
+			gRepository.save(group3);
+			gRepository.save(group4);
+			gRepository.save(group5);
+			gRepository.save(group6);
 
 			Dicipline dicipline1 = new Dicipline("Acrobatics");
 			Dicipline dicipline2 = new Dicipline("Aerial arts");
 			Dicipline dicipline3 = new Dicipline("Partner acrobatics");
 			Dicipline dicipline4 = new Dicipline("Juggling");
+			Dicipline dicipline5 = new Dicipline("Balancing");
 
 			dRepository.save(dicipline1);
 			dRepository.save(dicipline2);
 			dRepository.save(dicipline3);
 			dRepository.save(dicipline4);
+			dRepository.save(dicipline5);
 
 			Student student1 = new Student("Milla Maijanen", 12, 
-					"Mikonkatu", "Anna@gmail.com", "Student", dicipline1);
+					"Mikonkatu", "Anneli@gmail.com", "Student", dicipline3);
+
+			Student student2 = new Student("Anna Heikkinen", 20, 
+					"Lohanvuosi", "Anna@gmail.com", "Alumn", dicipline1);
+
+			Student student3 = new Student("Mikko Mallikas", 16, 
+					"Käpylänkuja", "Emma@gmail.com", "Alumn", dicipline4);
+			
+			Student student4 = new Student("Milja Aadon", 18, 
+					"Karkkila", "Milja@gmail.com", "Student, Alumn", dicipline5);
 
 			student1.getGroups().add(group2);
 			studentRepository.save(student1);
 
+			student2.getGroups().add(group1);
+			studentRepository.save(student2);
+
+			student3.getGroups().add(group5);
+			student3.getGroups().add(group4);
+			studentRepository.save(student3);
+
+			student4.getGroups().add(group6);
+			studentRepository.save(student4);
 
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
